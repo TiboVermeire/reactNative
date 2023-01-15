@@ -1,6 +1,6 @@
+import { StatusBar } from 'expo-status-bar';
 import React from "react";
-import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView,} from 'react-native';
-//import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView, TouchableWithoutFeedback,} from 'react-native';
 
 import Tile from '../components/food';
 
@@ -12,11 +12,13 @@ const homeScreen = ({ navigation }) => {
           <Text style={styles.header}>Ali Snackbar</Text>
         </SafeAreaView>
         </View>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Winkelwagen')}>
+            <View style= {styles.winkelwagen}>
+            <Image style={styles.shoppingcart} source={require('../assets/shoppingcart.png')}/>
+            </View>
+        </TouchableWithoutFeedback>
         <View>
-          <Image style={styles.shoppingcart} source={require('../assets/shoppingcart.png')}/>
-        </View>
-        <View>
-          <Tile title = "kapsalon kebab" price = "8"/>
+          <TouchableWithoutFeedback><Tile onPress={() => navigation.navigate('Detail')} title = "kapsalon kebab" price = "8"/></TouchableWithoutFeedback>
           <Tile title = "kapsalon kip " price = "8"/>
           <Tile title = "kapsalon pita" price = "8"/>
           <Tile title = "kapsalon mix" price = "10"/>
@@ -51,6 +53,9 @@ const styles = StyleSheet.create({
       marginRight: 5,
       height: 80,
       width: 80,
+    },
+    winkelwagen:{
+        paddingLeft: 300,
     },
   });
 
