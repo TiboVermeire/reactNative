@@ -5,7 +5,7 @@ const Winkelwagen = ({ navigation }) => {
 return(
     <View style= {styles.container}>
         <View style={styles.flex}>
-            <Text style={styles.header} >Schopping cart</Text>
+            <Text style={styles.header} >Winkelwagen</Text>
         </View>
         <View style= {styles.text}>
             <Text style= {styles.text}>please order some good food...</Text>
@@ -49,6 +49,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         
       },
+
+      
 
 });
 

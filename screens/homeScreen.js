@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from "react";
-import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView, TouchableWithoutFeedback,} from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView, TouchableWithoutFeedback,Button,String} from 'react-native';
 
 import Tile from '../components/food';
 
@@ -17,13 +17,22 @@ const homeScreen = ({ navigation }) => {
             <Image style={styles.shoppingcart} source={require('../assets/shoppingcart.png')}/>
             </View>
         </TouchableWithoutFeedback>
-        <View>
-          <TouchableWithoutFeedback><Tile onPress={() => navigation.navigate('Detail')} title = "kapsalon kebab" price = "8"/></TouchableWithoutFeedback>
+        <View> 
+            <Tile title = "kapsalon kebab" price = "8"/>
+            <View><Text onPress={() => navigation.navigate('Detail')} style= {styles.bekijk}>Bekijk kapsalon kebab!</Text></View> 
           <Tile title = "kapsalon kip " price = "8"/>
+          
           <Tile title = "kapsalon pita" price = "8"/>
           <Tile title = "kapsalon mix" price = "10"/>
           <Tile title = "lookbroodjes" price = "5"/>
         </View>
+
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Ali')}>
+        <View>
+            <Text style= {styles.text}>meer eten?</Text>
+        </View>
+        </TouchableWithoutFeedback>
+
         <StatusBar style="auto"/>
     </ScrollView>
   );
@@ -55,8 +64,22 @@ const styles = StyleSheet.create({
       width: 80,
     },
     winkelwagen:{
-        paddingLeft: 300,
+        marginLeft:300,
     },
+
+    text:{
+        flex: 1,
+        textAlign: 'center',
+        color: '#fff',
+        backgroundColor: 'red',
+        marginTop: 24,
+        padding: 16,
+    },
+
+    bekijk:{
+        color:'red',
+        marginBottom: 16,
+    }
   });
 
   export default homeScreen;
