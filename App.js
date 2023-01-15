@@ -1,21 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+
+import homeScreen from './screens/homeScreen';
+import detailScreen from './screens/detailScreen';
+import winkelwagen from './screens/winkelwagen';
+import snackAli from './screens/snackAli';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>je ma eet poep
-      </Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={homeScreen} />
+        <Stack.Screen name="Details" component={detailScreen} />
+        <Stack.Screen name="Winkelwagen" component={winkelwagen} />
+        <Stack.Screen name="Snack" component={snackAli}/>
+      </Stack.Navigator>
+    </NavigationContainer>   
+)};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
